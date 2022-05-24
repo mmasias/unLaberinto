@@ -1,3 +1,3 @@
 # unLaberinto
 
-Proyecto del laberinto
+![](../unLaberinto/images/unLaberinto.png)

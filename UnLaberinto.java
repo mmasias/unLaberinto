@@ -33,7 +33,6 @@ class UnLaberinto{
 			imprimeMapa(unMapa);
 			
 		} while (procesaMovimiento(unMapa));
-	
 	}
 
 	static boolean procesaMovimiento(int[][] elMapa){
