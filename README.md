@@ -1,3 +1,3 @@
 # unLaberinto
 
-![unLaberinto](../unLaberinto/images/unLaberinto.png)
+![unLaberinto](images/unLaberinto.png)
