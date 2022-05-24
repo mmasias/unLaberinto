@@ -36,7 +36,7 @@ class UnLaberinto{
 		} while (procesaMovimiento(unMapa));
 	}
 
-	static boolean procesaMovimiento(int[][] elMapa){
+	private static boolean procesaMovimiento(int[][] elMapa){
 
 		Scanner entrada = new Scanner(System.in);
 		String inputUsuario;
@@ -48,22 +48,23 @@ class UnLaberinto{
 		if (inputUsuario.equals("w") && elMapa[posicionY-1][posicionX]==0) {posicionY=posicionY-1;} else 
 		if (inputUsuario.equals("s") && elMapa[posicionY+1][posicionX]==0) {posicionY=posicionY+1;} else 
 		if (inputUsuario.equals("f")) { return false;}
+
 		return true;
 	}
 	
-	static void imprimePared(){
+	private static void imprimePared(){
 		System.out.print("[#]");
 	}
 	
-	static void imprimeSuelo(){
+	private static void imprimeSuelo(){
 		System.out.print(" . ");
 	}
 
-	static void imprimePersonaje(){
+	private static void imprimePersonaje(){
 		System.out.print("\\O/");
 	}
 
-	static void imprimeBordeHorizontal(int laLongitud){
+	private static void imprimeBordeHorizontal(int laLongitud){
 
 		System.out.print("+");
 		for (int j=0;j<laLongitud;j=j+1){
@@ -72,12 +73,12 @@ class UnLaberinto{
 		System.out.println("+");		
 	}
 
-	static void imprimeBordeVertical(boolean bordeDerecho){
+	private static void imprimeBordeVertical(boolean bordeDerecho){
 		System.out.print("|");
 		if (bordeDerecho) {System.out.println();}
 	}
 	
-	static void imprimeMapa(int[][] mapaPorImprimir){
+	private static void imprimeMapa(int[][] mapaPorImprimir){
 		
 		imprimeBordeHorizontal(mapaPorImprimir[0].length);
 		
@@ -87,10 +88,12 @@ class UnLaberinto{
 				if (i==posicionY && j==posicionX) {
 					imprimePersonaje();
 				} else {
-					if (mapaPorImprimir[i][j]==0) {			imprimeSuelo();	} 
-					else if (mapaPorImprimir[i][j]==1) {	imprimePared();	}
+					if (mapaPorImprimir[i][j]==0) {
+						imprimeSuelo();	
+					} else if (mapaPorImprimir[i][j]==1) {	
+						imprimePared();	
+					}
 				}
-
 			}
 			imprimeBordeVertical(true);
 		}		
