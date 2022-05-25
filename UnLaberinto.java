@@ -52,24 +52,6 @@ class UnLaberinto{
 		return true;
 	}
 	
-	private static void imprimePersonaje(){
-		System.out.print("\\O/");
-	}
-
-	private static void imprimeBordeHorizontal(int laLongitud){
-
-		System.out.print("+");
-		for (int j=0;j<laLongitud;j=j+1){
-			System.out.print("---");
-		}
-		System.out.println("+");		
-	}
-
-	private static void imprimeBordeVertical(boolean bordeDerecho){
-		System.out.print("|");
-		if (bordeDerecho) {System.out.println();}
-	}
-	
 	private static void imprimeMapa(int[][] mapaPorImprimir){
 		
 		imprimeBordeHorizontal(mapaPorImprimir[0].length);
@@ -94,10 +76,9 @@ class UnLaberinto{
 		System.out.println("Personaje en X:["+posicionX+"] Y:["+posicionY+"]");
 	}
 
-	private static boolean puedoVer(int i, int j, int alcanceVision) {
-
-		return Math.pow(posicionX-j,2)+Math.pow(posicionY-i,2)<=Math.pow(alcanceVision,2);
-
+	private static void limpiaPantalla(){
+		System.out.print("\033[H\033[2J");
+		System.out.flush();
 	}
 
 	private static void imprimeElemento(int elementoDelMapa) {
@@ -105,5 +86,29 @@ class UnLaberinto{
 
 		System.out.print(matrizDeElementos[elementoDelMapa]);
 	}
-	
+
+	private static boolean puedoVer(int i, int j, int alcanceVision) {
+
+		return Math.pow(posicionX-j,2)+Math.pow(posicionY-i,2)<=Math.pow(alcanceVision,2);
+
+	}	
+
+	private static void imprimePersonaje(){
+		System.out.print("\\O/");
+	}
+
+	private static void imprimeBordeHorizontal(int laLongitud){
+
+		System.out.print("+");
+		for (int j=0;j<laLongitud;j=j+1){
+			System.out.print("---");
+		}
+		System.out.println("+");		
+	}
+
+	private static void imprimeBordeVertical(boolean bordeDerecho){
+		System.out.print("|");
+		if (bordeDerecho) {System.out.println();}
+	}
+
 }
