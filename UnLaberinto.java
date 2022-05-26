@@ -2,6 +2,37 @@ import java.util.Scanner;
 class UnLaberinto{	
 
 	private static int posicionX, posicionY;
+	private static int ALCANCE_ANTORCHA = 8;
+	
+	private static String INICIO = "\033[";
+	private static String RESET = "\033[0m";
+
+    private static String BLACK = "0;30";
+    private static String RED = "0;31";
+    private static String GREEN = "0;32";
+    private static String YELLOW = "0;33";
+    private static String BLUE = "0;34";
+    private static String PURPLE = "0;35";
+    private static String CYAN = "0;36";
+    private static String WHITE = "0;37";
+
+    private static String BLACK_BOLD = "1;30";  
+    private static String RED_BOLD = "1;31";    
+    private static String GREEN_BOLD = "1;32";  
+    private static String YELLOW_BOLD = "1;33"; 
+    private static String BLUE_BOLD = "1;34";   
+    private static String PURPLE_BOLD = "1;35"; 
+    private static String CYAN_BOLD = "1;36";   
+    private static String WHITE_BOLD = "1;37";  	
+
+	private static String BLACK_BACKGROUND = ";40m";
+    private static String RED_BACKGROUND = ";41m";
+    private static String GREEN_BACKGROUND = ";42m";
+    private static String YELLOW_BACKGROUND = ";43m";
+    private static String BLUE_BACKGROUND = ";44m";
+    private static String PURPLE_BACKGROUND = ";45m";
+    private static String CYAN_BACKGROUND = ";46m";
+    private static String WHITE_BACKGROUND = ";47m";	
 
 	public static void main(String[] args){
 			
@@ -59,14 +90,14 @@ class UnLaberinto{
 		for (int i=0; i<mapaPorImprimir.length; i=i+1){
 			imprimeBordeVertical(false);
 			for (int j=0; j<mapaPorImprimir[i].length; j=j+1) {
-				if (puedoVer(i,j,4)) {
+				if (puedoVer(i,j,ALCANCE_ANTORCHA)) {
 					if (i==posicionY && j==posicionX) {
 						imprimePersonaje();
 					} else {
 						imprimeElemento(mapaPorImprimir[i][j]);
 					}
 				} else {
-					System.out.print("   ");
+					imprimeVacio();
 				}
 			}
 			imprimeBordeVertical(true);
@@ -82,9 +113,18 @@ class UnLaberinto{
 	}
 
 	private static void imprimeElemento(int elementoDelMapa) {
-		String[] matrizDeElementos = {" . ","[#]", "o.*","~ ~"};
+		String[] matrizDeElementos = {
+			INICIO + YELLOW + GREEN_BACKGROUND + " . " + RESET,
+			INICIO + WHITE + WHITE_BACKGROUND +"[#]" + RESET, 
+			INICIO + RED + GREEN_BACKGROUND + "*" + RESET + INICIO + GREEN_BOLD	+ GREEN_BACKGROUND + "Y" + RESET + INICIO + RED + GREEN_BACKGROUND + "*" + RESET,
+			INICIO + BLUE_BOLD + BLUE_BACKGROUND + "~ ~" + RESET
+		};
 
 		System.out.print(matrizDeElementos[elementoDelMapa]);
+	}
+
+	private static void imprimeVacio(){
+		System.out.print(INICIO + BLACK + BLACK_BACKGROUND + "   " + RESET);
 	}
 
 	private static boolean puedoVer(int i, int j, int alcanceVision) {
