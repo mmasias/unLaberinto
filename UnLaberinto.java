@@ -65,6 +65,7 @@ class UnLaberinto{
 		do {
 			imprimeMapa(unMapa);
 		} while (procesaMovimiento(unMapa));
+
 	}
 
 	private static boolean procesaMovimiento(int[][] elMapa){
@@ -81,10 +82,12 @@ class UnLaberinto{
 		if (inputUsuario.equals("f")) { return false;}
 
 		return true;
+
 	}
 	
 	private static void imprimeMapa(int[][] mapaPorImprimir){
 		
+		limpiaPantalla();
 		imprimeBordeHorizontal(mapaPorImprimir[0].length);
 		
 		for (int i=0; i<mapaPorImprimir.length; i=i+1){
@@ -105,16 +108,19 @@ class UnLaberinto{
 		imprimeBordeHorizontal(mapaPorImprimir[0].length);
 		
 		System.out.println("Personaje en X:["+posicionX+"] Y:["+posicionY+"]");
+
 	}
 
 	private static void limpiaPantalla(){
+
 		System.out.print("\033[H\033[2J");
 		System.out.flush();
+
 	}
 
 	private static void imprimeElemento(int elementoDelMapa) {
 		String[] matrizDeElementos = {
-			INICIO + YELLOW + GREEN_BACKGROUND + " . " + RESET,
+		 	INICIO + YELLOW + GREEN_BACKGROUND + " . " + RESET,
 			INICIO + WHITE + WHITE_BACKGROUND +"[#]" + RESET, 
 			INICIO + RED + GREEN_BACKGROUND + "*" + RESET + INICIO + GREEN_BOLD	+ GREEN_BACKGROUND + "Y" + RESET + INICIO + RED + GREEN_BACKGROUND + "*" + RESET,
 			INICIO + BLUE_BOLD + BLUE_BACKGROUND + "~ ~" + RESET
@@ -124,7 +130,9 @@ class UnLaberinto{
 	}
 
 	private static void imprimeVacio(){
+
 		System.out.print(INICIO + BLACK + BLACK_BACKGROUND + "   " + RESET);
+
 	}
 
 	private static boolean puedoVer(int i, int j, int alcanceVision) {
@@ -134,7 +142,9 @@ class UnLaberinto{
 	}	
 
 	private static void imprimePersonaje(){
+
 		System.out.print("\\O/");
+
 	}
 
 	private static void imprimeBordeHorizontal(int laLongitud){
@@ -143,12 +153,15 @@ class UnLaberinto{
 		for (int j=0;j<laLongitud;j=j+1){
 			System.out.print("---");
 		}
-		System.out.println("+");		
+		System.out.println("+");	
+
 	}
 
 	private static void imprimeBordeVertical(boolean bordeDerecho){
+
 		System.out.print("|");
 		if (bordeDerecho) {System.out.println();}
+
 	}
 
 }
