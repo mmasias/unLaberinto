@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 class UnLaberinto {
 
-	private static int ALCANCE_ANTORCHA = 50;
+	private static int ALCANCE_ANTORCHA = 10;
 
 	private static String INICIO = "\033[";
 	private static String RESET = "\033[0m";
@@ -123,22 +123,22 @@ class UnLaberinto {
 		}
 	}
 
-	private static void imprimeMundo(int[][] mapaPorImprimir, int[][] elPersonaje, int[][] losNPCs) {
+	private static void imprimeMundo(int[][] elMapa, int[][] elPersonaje, int[][] losNPCs) {
 
 		limpiaPantalla();
-		imprimeBordeHorizontal(mapaPorImprimir[0].length);
+		imprimeBordeHorizontal(elMapa[0].length);
 
-		for (int i = 0; i < mapaPorImprimir.length; i = i + 1) {
+		for (int i = 0; i < elMapa.length; i = i + 1) {
 			imprimeBordeVertical(false);
-			for (int j = 0; j < mapaPorImprimir[i].length; j = j + 1) {
-				if (puedoVer(i, j, ALCANCE_ANTORCHA)) {
+			for (int j = 0; j < elMapa[i].length; j = j + 1) {
+				if (puedoVer(i, j, elPersonaje)) {
 					if (i == elPersonaje[0][1] && j == elPersonaje[0][0]) {
 						imprimePersonaje();
 					} else {
 						if (hayNPC(losNPCs, i, j)) {
 							imprimeNPC();
 						} else {
-							imprimeElemento(mapaPorImprimir[i][j]);
+							imprimeElemento(elMapa[i][j]);
 						}
 					}
 				} else {
@@ -147,7 +147,7 @@ class UnLaberinto {
 			}
 			imprimeBordeVertical(true);
 		}
-		imprimeBordeHorizontal(mapaPorImprimir[0].length);
+		imprimeBordeHorizontal(elMapa[0].length);
 		imprimeStatus(elPersonaje, losNPCs);
 	}
 
@@ -165,12 +165,6 @@ class UnLaberinto {
 			}
 		}
 		return false;
-	}
-
-	private static void imprimeNPC() {
-
-		System.out.print("_A_");
-
 	}
 
 	private static void limpiaPantalla() {
@@ -197,18 +191,24 @@ class UnLaberinto {
 
 	}
 
-	private static boolean puedoVer(int i, int j, int alcanceVision) {
+	private static boolean puedoVer(int i, int j, int[][] elPersonaje) {
 
-		// return
-		// Math.pow(posicionPersonajeX-j,2)+Math.pow(posicionPersonajeY-i,2)<=Math.pow(alcanceVision,2);
-		return true;
+		return Math.pow(elPersonaje[0][0]-j,2)+Math.pow(elPersonaje[0][0]-i,2)<=Math.pow(ALCANCE_ANTORCHA,2);
+
 	}
 
 	private static void imprimePersonaje() {
 
-		System.out.print("\\O/");
+		System.out.print(INICIO + BLACK + GREEN_BACKGROUND + "\\O/" + RESET);
 
 	}
+
+	private static void imprimeNPC() {
+
+		System.out.print(INICIO + YELLOW_BOLD + GREEN_BACKGROUND + "^V^" + RESET);
+
+	}
+
 
 	private static void imprimeBordeHorizontal(int laLongitud) {
 
