@@ -1,8 +1,6 @@
 import java.util.Scanner;
 class UnLaberinto{	
 
-	private static int posicionPersonajeX, posicionPersonajeY;
-	private static int posicionNPCX, posicionNPCY;
 	private static int ALCANCE_ANTORCHA = 50;
 	
 	private static String INICIO = "\033[";
@@ -60,45 +58,46 @@ class UnLaberinto{
 			{0,1,0,0,0,0,0,0,0,0,0,0,0,1,1,1,0,1,0},
 			{0,0,0,0,1,1,1,0,1,0,0,0,0,1,1,1,0,1,0}
 			};
-		posicionPersonajeX = 2; 
-		posicionPersonajeY = 0;
-		posicionNPCX = 7;
-		posicionNPCY = 5;
+		int[][] elPersonaje = {{2,0}};
+		int [][] NPCs = {
+			{4,4},
+			{5,5}
+		};
 
 		do {
-			imprimeMapa(unMapa);
-		} while (procesaMovimiento(unMapa));
+			imprimeMundo(unMapa, elPersonaje, NPCs);
+		} while (procesaMovimiento(unMapa, elPersonaje, NPCs));
 	}
 
-	private static boolean procesaMovimiento(int[][] elMapa){
+	private static boolean procesaMovimiento(int[][] elMapa, int[][] elPersonaje, int[][] nPCs){
 
-		mueveNPCs(elMapa);
+		mueveNPCs(elMapa, nPCs);
 
 		Scanner entrada = new Scanner(System.in);
 		String inputUsuario;
 		
 		inputUsuario = entrada.nextLine();
 		
-		if (inputUsuario.equals("a") && elMapa[posicionPersonajeY][posicionPersonajeX-1]%2==0) {posicionPersonajeX=posicionPersonajeX-1;} else 
-		if (inputUsuario.equals("d") && elMapa[posicionPersonajeY][posicionPersonajeX+1]%2==0) {posicionPersonajeX=posicionPersonajeX+1;} else 
-		if (inputUsuario.equals("w") && elMapa[posicionPersonajeY-1][posicionPersonajeX]%2==0) {posicionPersonajeY=posicionPersonajeY-1;} else 
-		if (inputUsuario.equals("s") && elMapa[posicionPersonajeY+1][posicionPersonajeX]%2==0) {posicionPersonajeY=posicionPersonajeY+1;} else 
+		if (inputUsuario.equals("a") && elMapa[elPersonaje[0][1]][elPersonaje[0][0]-1]%2==0) {elPersonaje[0][0]=elPersonaje[0][0]-1;} else 
+		if (inputUsuario.equals("d") && elMapa[elPersonaje[0][1]][elPersonaje[0][0]+1]%2==0) {elPersonaje[0][0]=elPersonaje[0][0]+1;} else 
+		if (inputUsuario.equals("w") && elMapa[elPersonaje[0][1]-1][elPersonaje[0][0]]%2==0) {elPersonaje[0][1]=elPersonaje[0][1]-1;} else 
+		if (inputUsuario.equals("s") && elMapa[elPersonaje[0][1]+1][elPersonaje[0][0]]%2==0) {elPersonaje[0][1]=elPersonaje[0][1]+1;} else 
 		if (inputUsuario.equals("f")) { return false; }
 
 		return true;
 	}
 	
-	private static void mueveNPCs(int[][] elMapa) {
+	private static void mueveNPCs(int[][] elMapa, int[][] nPCs) {
 		double movimiento = Math.random();
 
-		if (movimiento<=0.25 && elMapa[posicionNPCY][posicionNPCX-1]%2==0) {posicionNPCX=posicionNPCX-1;} else 
-		if (movimiento<=0.5 && elMapa[posicionNPCY][posicionNPCX+1]%2==0) {posicionNPCX=posicionNPCX+1;} else 
-		if (movimiento<=0.75 && elMapa[posicionNPCY-1][posicionNPCX]%2==0) {posicionNPCY=posicionNPCY-1;} else 
-		if (movimiento<=1 && elMapa[posicionNPCY+1][posicionNPCX]%2==0) {posicionNPCY=posicionNPCY+1;}
+		if (movimiento<=0.25 && elMapa[nPCs[0][1]][nPCs[0][0]-1]%2==0) {nPCs[0][0]=nPCs[0][0]-1;} else 
+		if (movimiento<=0.5 && elMapa[nPCs[0][1]][nPCs[0][0]+1]%2==0) {nPCs[0][0]=nPCs[0][0]+1;} else 
+		if (movimiento<=0.75 && elMapa[nPCs[0][1]-1][nPCs[0][0]]%2==0) {nPCs[0][1]=nPCs[0][1]-1;} else 
+		if (movimiento<=1 && elMapa[nPCs[0][1]+1][nPCs[0][0]]%2==0) {nPCs[0][1]=nPCs[0][1]+1;}
 
 	}
 
-	private static void imprimeMapa(int[][] mapaPorImprimir){
+	private static void imprimeMundo(int[][] mapaPorImprimir, int[][] elPersonaje, int[][] nPCs){
 		
 		limpiaPantalla();
 		imprimeBordeHorizontal(mapaPorImprimir[0].length);
@@ -107,9 +106,9 @@ class UnLaberinto{
 			imprimeBordeVertical(false);
 			for (int j=0; j<mapaPorImprimir[i].length; j=j+1) {
 				if (puedoVer(i,j,ALCANCE_ANTORCHA)) {
-					if (i==posicionPersonajeY && j==posicionPersonajeX) {
+					if (i==elPersonaje[0][1] && j==elPersonaje[0][0]) {
 						imprimePersonaje();
-					} else if (i==posicionNPCY && j==posicionNPCX) {
+					} else if (i==nPCs[0][1] && j==nPCs[0][0]) {
 						imprimeNPC();
 					} else {
 						imprimeElemento(mapaPorImprimir[i][j]);
@@ -122,7 +121,7 @@ class UnLaberinto{
 		}		
 		imprimeBordeHorizontal(mapaPorImprimir[0].length);
 		
-		System.out.println("Personaje en X:["+posicionPersonajeX+"] Y:["+posicionPersonajeY+"]");
+		System.out.println("Personaje en X:[" + elPersonaje[0][0] + "] Y:[" + elPersonaje[0][1] + "]");
 
 	}
 
@@ -158,8 +157,8 @@ class UnLaberinto{
 
 	private static boolean puedoVer(int i, int j, int alcanceVision) {
 
-		return Math.pow(posicionPersonajeX-j,2)+Math.pow(posicionPersonajeY-i,2)<=Math.pow(alcanceVision,2);
-
+		//return Math.pow(posicionPersonajeX-j,2)+Math.pow(posicionPersonajeY-i,2)<=Math.pow(alcanceVision,2);
+		return true;
 	}	
 
 	private static void imprimePersonaje(){
