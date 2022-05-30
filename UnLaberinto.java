@@ -63,7 +63,7 @@ class UnLaberinto{
 			{12,14},
 			{12,12},
 			{14,14},
-			{14,12}
+			{14,12},
 		};
 
 		do {
@@ -79,12 +79,17 @@ class UnLaberinto{
 		String inputUsuario;
 		
 		inputUsuario = entrada.nextLine();
-		
-		if (inputUsuario.equals("a") && elMapa[elPersonaje[0][1]][elPersonaje[0][0]-1]%2==0) {elPersonaje[0][0]=elPersonaje[0][0]-1;} else 
-		if (inputUsuario.equals("d") && elMapa[elPersonaje[0][1]][elPersonaje[0][0]+1]%2==0) {elPersonaje[0][0]=elPersonaje[0][0]+1;} else 
-		if (inputUsuario.equals("w") && elMapa[elPersonaje[0][1]-1][elPersonaje[0][0]]%2==0) {elPersonaje[0][1]=elPersonaje[0][1]-1;} else 
-		if (inputUsuario.equals("s") && elMapa[elPersonaje[0][1]+1][elPersonaje[0][0]]%2==0) {elPersonaje[0][1]=elPersonaje[0][1]+1;} else 
-		if (inputUsuario.equals("f")) { return false; }
+		int elPersonajeX, elPersonajeY;
+
+		elPersonajeX = elPersonaje[0][0];
+		elPersonajeY = elPersonaje[0][1];		
+			if (inputUsuario.equals("a") && elMapa[elPersonajeY][elPersonajeX-1]%2==0) {elPersonajeX=elPersonajeX-1;} else 
+			if (inputUsuario.equals("d") && elMapa[elPersonajeY][elPersonajeX+1]%2==0) {elPersonajeX=elPersonajeX+1;} else 
+			if (inputUsuario.equals("w") && elMapa[elPersonajeY-1][elPersonajeX]%2==0) {elPersonajeY=elPersonajeY-1;} else 
+			if (inputUsuario.equals("s") && elMapa[elPersonajeY+1][elPersonajeX]%2==0) {elPersonajeY=elPersonajeY+1;} else 
+			if (inputUsuario.equals("f")) { return false; }
+		elPersonaje[0][0]=elPersonajeX;
+		elPersonaje[0][1]=elPersonajeY;
 
 		return true;
 	}
