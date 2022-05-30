@@ -36,42 +36,44 @@ class UnLaberinto{
 	public static void main(String[] args){
 			
 		int[][] unMapa = {
-			{0,0,2,0,1,1,1,0,1,0,0,0,0,1,1,1,0,1,0},
-			{2,2,2,0,3,3,3,0,1,0,1,1,0,0,0,0,0,1,0},
-			{0,2,2,0,3,3,3,0,1,0,0,0,0,1,0,1,0,1,0},
-			{0,0,1,0,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0},
-			{1,0,0,0,1,0,1,1,1,1,1,0,0,1,1,1,0,1,0},
-			{1,0,0,1,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0},
-			{1,1,0,0,1,1,1,0,1,0,0,0,0,1,1,1,0,1,0},
-			{0,1,1,0,0,0,0,0,1,0,0,1,0,1,0,0,0,0,0},
-			{0,0,0,0,1,0,1,0,1,0,1,0,0,0,0,0,0,0,0},
-			{0,1,0,0,0,0,0,0,0,0,0,0,0,1,1,1,0,1,0},
-			{0,0,0,0,1,1,1,0,1,0,0,0,0,1,1,1,0,1,0},
-			{0,1,1,0,0,0,0,0,1,0,1,1,0,0,0,0,0,1,0},
-			{0,0,1,0,1,1,1,0,1,0,0,0,0,1,0,1,0,1,0},
-			{0,0,1,0,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0},
-			{0,0,1,0,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0},
-			{1,0,0,0,1,0,1,1,1,1,1,0,0,1,1,1,0,1,0},
-			{1,0,0,1,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0},
-			{1,0,0,0,1,0,1,1,1,1,1,0,0,1,1,1,0,1,0},
-			{0,0,0,0,1,0,1,0,1,0,1,0,0,0,0,0,0,0,0},
-			{0,1,0,0,0,0,0,0,0,0,0,0,0,1,1,1,0,1,0},
-			{0,0,0,0,1,1,1,0,1,0,0,0,0,1,1,1,0,1,0}
+			{1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
+			{1,2,2,0,3,3,3,0,1,0,1,1,0,0,0,0,0,1,3,0,1,0,1,1,0,0,0,0,0,1,1},
+			{1,2,2,0,3,3,3,0,1,0,0,0,0,1,0,1,0,1,3,0,1,0,0,0,0,1,0,1,0,1,1},
+			{1,0,1,0,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,1},
+			{1,0,0,0,1,0,1,1,1,1,1,0,0,1,1,1,0,1,1,1,1,1,1,0,0,1,1,1,0,1,1},
+			{1,0,0,1,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,1},
+			{1,1,0,0,1,1,1,0,1,0,0,0,0,1,1,1,0,1,1,0,1,0,0,0,0,1,1,1,0,1,1},
+			{1,1,1,0,0,0,0,0,1,0,0,1,0,1,0,0,0,0,0,0,1,0,0,1,0,1,0,0,0,0,1},
+			{1,0,0,0,1,0,1,0,1,0,1,0,0,0,0,0,0,0,1,0,1,0,1,0,0,0,0,0,0,0,1},
+			{1,1,0,0,0,0,0,0,0,0,0,0,0,1,1,1,0,1,0,0,0,0,0,0,0,1,1,1,0,1,1},
+			{1,0,0,0,1,1,1,0,1,0,0,0,0,1,1,1,0,1,1,0,1,0,0,0,0,1,1,1,0,1,1},
+			{1,1,1,0,0,0,0,0,1,0,1,1,0,0,0,0,0,1,0,0,1,0,1,1,0,0,0,0,0,1,1},
+			{1,0,1,0,1,1,1,0,1,0,0,0,0,1,0,1,0,1,1,0,1,0,0,0,0,1,0,1,0,1,1},
+			{1,0,1,0,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,1},
+			{1,0,1,0,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,1},
+			{1,0,0,0,1,0,1,1,1,1,1,0,0,1,1,1,0,1,1,1,1,1,1,0,0,1,1,1,0,1,1},
+			{1,0,0,1,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,1},
+			{1,0,0,0,1,0,1,1,1,1,1,0,0,1,1,1,0,1,1,1,1,1,1,0,0,1,1,1,0,1,1},
+			{1,0,0,0,1,0,1,0,1,0,1,0,0,0,0,0,0,0,1,0,1,0,1,0,0,0,0,0,0,0,1},
+			{1,1,0,0,0,0,0,0,0,0,0,0,0,1,1,1,0,1,0,0,0,0,0,0,0,1,1,1,0,1,1},
+			{1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1}
 			};
 		int[][] elPersonaje = {{2,0}};
-		int [][] NPCs = {
-			{4,4},
-			{5,5}
+		int [][] losNPCs = {
+			{1,3},
+			{1,6},
+			{1,9},
+			{1,12}
 		};
 
 		do {
-			imprimeMundo(unMapa, elPersonaje, NPCs);
-		} while (procesaMovimiento(unMapa, elPersonaje, NPCs));
+			imprimeMundo(unMapa, elPersonaje, losNPCs);
+		} while (procesaMovimiento(unMapa, elPersonaje, losNPCs));
 	}
 
-	private static boolean procesaMovimiento(int[][] elMapa, int[][] elPersonaje, int[][] nPCs){
+	private static boolean procesaMovimiento(int[][] elMapa, int[][] elPersonaje, int[][] losNPCs){
 
-		mueveNPCs(elMapa, nPCs);
+		mueveNPCs(elMapa, losNPCs);
 
 		Scanner entrada = new Scanner(System.in);
 		String inputUsuario;
@@ -87,17 +89,24 @@ class UnLaberinto{
 		return true;
 	}
 	
-	private static void mueveNPCs(int[][] elMapa, int[][] nPCs) {
-		double movimiento = Math.random();
+	private static void mueveNPCs(int[][] elMapa, int[][] losNPCs) {
+		double movimiento;
+		int npcX, npcY;
 
-		if (movimiento<=0.25 && elMapa[nPCs[0][1]][nPCs[0][0]-1]%2==0) {nPCs[0][0]=nPCs[0][0]-1;} else 
-		if (movimiento<=0.5 && elMapa[nPCs[0][1]][nPCs[0][0]+1]%2==0) {nPCs[0][0]=nPCs[0][0]+1;} else 
-		if (movimiento<=0.75 && elMapa[nPCs[0][1]-1][nPCs[0][0]]%2==0) {nPCs[0][1]=nPCs[0][1]-1;} else 
-		if (movimiento<=1 && elMapa[nPCs[0][1]+1][nPCs[0][0]]%2==0) {nPCs[0][1]=nPCs[0][1]+1;}
-
+		for (int unNPC=0; unNPC<losNPCs.length; unNPC++) {
+			movimiento = Math.random();
+			npcX=losNPCs[unNPC][0];
+			npcY=losNPCs[unNPC][1];
+				if (movimiento<=0.25 && elMapa[npcY][npcX-1]%2==0) {npcX=npcX-1;} else 
+				if (movimiento<=0.5 && elMapa[npcY][npcX+1]%2==0) {npcX=npcX+1;} else 
+				if (movimiento<=0.75 && elMapa[npcY-1][npcX]%2==0) {npcY=npcY-1;} else 
+				if (movimiento<=1 && elMapa[npcY+1][npcX]%2==0) {npcY=npcY+1;}
+			losNPCs[unNPC][0]=npcX;
+			losNPCs[unNPC][1]=npcY;
+		}	
 	}
 
-	private static void imprimeMundo(int[][] mapaPorImprimir, int[][] elPersonaje, int[][] nPCs){
+	private static void imprimeMundo(int[][] mapaPorImprimir, int[][] elPersonaje, int[][] losNPCs){
 		
 		limpiaPantalla();
 		imprimeBordeHorizontal(mapaPorImprimir[0].length);
@@ -108,10 +117,12 @@ class UnLaberinto{
 				if (puedoVer(i,j,ALCANCE_ANTORCHA)) {
 					if (i==elPersonaje[0][1] && j==elPersonaje[0][0]) {
 						imprimePersonaje();
-					} else if (i==nPCs[0][1] && j==nPCs[0][0]) {
-						imprimeNPC();
 					} else {
-						imprimeElemento(mapaPorImprimir[i][j]);
+						if (hayNPC(losNPCs,i,j)) {
+							imprimeNPC();
+						} else {
+							imprimeElemento(mapaPorImprimir[i][j]);
+						}
 					}
 				} else {
 					imprimeVacio();
@@ -120,9 +131,23 @@ class UnLaberinto{
 			imprimeBordeVertical(true);
 		}		
 		imprimeBordeHorizontal(mapaPorImprimir[0].length);
-		
-		System.out.println("Personaje en X:[" + elPersonaje[0][0] + "] Y:[" + elPersonaje[0][1] + "]");
+		imprimeStatus(elPersonaje, losNPCs);		
+	}
 
+	private static void imprimeStatus(int[][] elPersonaje, int[][] losNPCs) {
+		System.out.println("Personaje en X:[" + elPersonaje[0][0] + "] Y:[" + elPersonaje[0][1] + "]");
+		for (int unNPC=0; unNPC<losNPCs.length; unNPC++) {
+			System.out.print("NPC["+unNPC+"]=("+losNPCs[unNPC][0]+","+losNPCs[unNPC][1]+") - ");
+		}		
+	}
+
+	private static boolean hayNPC(int[][] losNPCs, int i, int j) {
+		for (int unNPC=0; unNPC<losNPCs.length; unNPC++) {
+			if (losNPCs[unNPC][0]==j && losNPCs[unNPC][1]==i) {
+				return true;
+			}
+		}
+		return false;
 	}
 
 	private static void imprimeNPC() {
