@@ -5,10 +5,10 @@ class UnLaberinto {
 	public static void main(String[] args) {
 
 		int[][] unMapa = {
-				{ 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 },
-				{ 1, 2, 2, 0, 3, 3, 3, 0, 1, 0, 1, 1, 0, 0, 0, 0, 0, 1, 3, 0, 1, 0, 1, 1, 0, 0, 0, 0, 0, 1, 1 },
-				{ 1, 2, 2, 0, 3, 3, 3, 0, 1, 0, 0, 0, 0, 1, 0, 1, 0, 1, 3, 0, 1, 0, 0, 0, 0, 1, 0, 1, 0, 1, 1 },
-				{ 1, 0, 1, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1 },
+				{ 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 },
+				{ 1, 2, 2, 0, 0, 3, 3, 0, 1, 0, 1, 1, 0, 0, 0, 0, 0, 1, 3, 0, 1, 0, 1, 1, 0, 0, 0, 0, 0, 1, 1 },
+				{ 1, 2, 2, 0, 0, 3, 3, 0, 1, 0, 0, 0, 0, 1, 0, 1, 0, 1, 3, 0, 1, 0, 0, 0, 0, 1, 0, 1, 0, 1, 1 },
+				{ 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0 },
 				{ 1, 0, 0, 0, 1, 0, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 0, 1, 1 },
 				{ 1, 0, 0, 1, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1 },
 				{ 1, 1, 0, 0, 1, 1, 1, 0, 1, 0, 0, 0, 0, 1, 1, 1, 0, 1, 1, 0, 1, 0, 0, 0, 0, 1, 1, 1, 0, 1, 1 },
@@ -25,9 +25,10 @@ class UnLaberinto {
 				{ 1, 0, 0, 0, 1, 0, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 0, 1, 1 },
 				{ 1, 0, 0, 0, 1, 0, 1, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1 },
 				{ 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 1, 1 },
-				{ 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 }
+				{ 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 }
 		};
-		int[][] elPersonaje = { { 2, 0 } };
+		int[][] elPersonaje = { { 2, 2 } };
+		int[] elReloj = {16,0};
 		int[][] losNPCs = {
 				{ 12, 14 },
 				{ 12, 12 },
@@ -36,8 +37,38 @@ class UnLaberinto {
 		};
 
 		do {
-			imprimeMundo(unMapa, elPersonaje, losNPCs);
+			pasaElTiempo(elReloj);
+			imprimeMundo(unMapa, elPersonaje, losNPCs, elReloj);
 		} while (procesaMovimiento(unMapa, elPersonaje, losNPCs));
+	}
+
+	private static void pasaElTiempo(int[] elReloj) {
+
+		elReloj[1]=elReloj[1]+10;
+		if (elReloj[1]==60){
+			elReloj[0]++;
+			elReloj[1]=0;
+		}
+		if (elReloj[0]==24){
+			elReloj[0]=0;
+			elReloj[1]=0;
+		}
+
+		ALCANCE_ANTORCHA = alcanceAntorcha(elReloj);
+	}
+
+	private static int alcanceAntorcha(int[] elReloj) {
+		
+		int hora, minuto;
+		double minutos;
+		hora = elReloj[0];
+		minuto = elReloj[1];
+		minutos = hora*60+minuto;
+
+		if (hora<4||hora>=21){return 3;}
+		if (hora>=4 && hora <8) {return ((int)(3.0+((32.0/240.0)*(minutos-240.0))));}
+		if (hora>=17 && hora <21) {return ((int)(35.0+((-32.0/240.0)*(minutos-1030.0))));}
+		return 35;
 	}
 
 	private static boolean procesaMovimiento(int[][] elMapa, int[][] elPersonaje, int[][] losNPCs) {
@@ -65,13 +96,22 @@ class UnLaberinto {
 		elPersonajeX = unPersonaje[0];
 		elPersonajeY = unPersonaje[1];
 
-		if (unaDireccion=='O' && unMapa[elPersonajeY][elPersonajeX - 1] % 2 == 0) { elPersonajeX = elPersonajeX - 1; } else 
-		if (unaDireccion=='E' && unMapa[elPersonajeY][elPersonajeX + 1] % 2 == 0) { elPersonajeX = elPersonajeX + 1; } else 
-		if (unaDireccion=='N' && unMapa[elPersonajeY - 1][elPersonajeX] % 2 == 0) { elPersonajeY = elPersonajeY - 1; } else 
-		if (unaDireccion=='S' && unMapa[elPersonajeY + 1][elPersonajeX] % 2 == 0) { elPersonajeY = elPersonajeY + 1; } 
+		if (unaDireccion=='O') {
+			if (elPersonajeX == 0) { elPersonajeX = unMapa[0].length - 1; } 
+			else if  (unMapa[elPersonajeY][elPersonajeX - 1] % 2 == 0) { elPersonajeX = elPersonajeX - 1; }
+		} else if (unaDireccion=='N') {
+			if (elPersonajeY == 0) {elPersonajeY = unMapa.length - 1;} 
+			else if  (unMapa[elPersonajeY - 1][elPersonajeX] % 2 == 0) { elPersonajeY = elPersonajeY - 1; }
+		} else if (unaDireccion=='E') {
+			if (elPersonajeX == unMapa[0].length - 1) { elPersonajeX = 0;} 
+			else if  (unMapa[elPersonajeY][elPersonajeX + 1] % 2 == 0) { elPersonajeX = elPersonajeX + 1; }
+		} else if (unaDireccion=='S') {
+			if (elPersonajeY == unMapa.length - 1) { elPersonajeY = 0;} 
+			else if  (unMapa[elPersonajeY + 1][elPersonajeX] % 2 == 0) { elPersonajeY = elPersonajeY + 1; }
+		} 
 
 		unPersonaje[0] = elPersonajeX;
-		unPersonaje[1] = elPersonajeY;		
+		unPersonaje[1] = elPersonajeY;	
 	}
 
 	private static void mueveNPCs(int[][] elMapa, int[][] losNPCs) {
@@ -102,7 +142,7 @@ class UnLaberinto {
 		System.out.flush();
 	}
 
-	private static void imprimeMundo(int[][] elMapa, int[][] elPersonaje, int[][] losNPCs) {
+	private static void imprimeMundo(int[][] elMapa, int[][] elPersonaje, int[][] losNPCs, int[] elReloj) {
 
 		limpiaPantalla();
 		imprimeBordeHorizontal(elMapa[0].length);
@@ -127,15 +167,16 @@ class UnLaberinto {
 			imprimeBordeVertical(true);
 		}
 		imprimeBordeHorizontal(elMapa[0].length);
-		imprimeStatus(elPersonaje, losNPCs);
+		imprimeStatus(elPersonaje, losNPCs, elReloj);
 	}
 
-	private static void imprimeStatus(int[][] elPersonaje, int[][] losNPCs) {
+	private static void imprimeStatus(int[][] elPersonaje, int[][] losNPCs, int[] elReloj) {
 
-		System.out.println("Personaje en X:[" + elPersonaje[0][0] + "] Y:[" + elPersonaje[0][1] + "]");
+		System.out.println("Son las ["+elReloj[0]+"]:["+elReloj[1]+"] / El personaje está en X:[" + elPersonaje[0][0] + "] Y:[" + elPersonaje[0][1] + "]");
 		for (int unNPC = 0; unNPC < losNPCs.length; unNPC++) {
 			System.out.print("NPC[" + unNPC + "]=(" + losNPCs[unNPC][0] + "," + losNPCs[unNPC][1] + ") - ");
 		}
+		System.out.println("\n" + ALCANCE_ANTORCHA);
 	}
 
 	private static void imprimeElemento(int elementoDelMapa) {
@@ -144,7 +185,8 @@ class UnLaberinto {
 				INICIO + YELLOW + GREEN_BACKGROUND + " . " + RESET,
 				INICIO + WHITE + WHITE_BACKGROUND + "[#]" + RESET,
 				INICIO + RED + GREEN_BACKGROUND + "*" + RESET + INICIO + GREEN_BOLD + GREEN_BACKGROUND + "Y" + RESET + INICIO + RED + GREEN_BACKGROUND + "*" + RESET,
-				INICIO + BLUE_BOLD + BLUE_BACKGROUND + "~ ~" + RESET
+				INICIO + BLUE_BOLD + BLUE_BACKGROUND + "~ ~" + RESET,
+				INICIO + YELLOW + GREEN_BACKGROUND + " : " + RESET
 		};
 		System.out.print(matrizDeElementos[elementoDelMapa]);
 	}
@@ -192,7 +234,7 @@ class UnLaberinto {
 
 	}
 
-	private static int ALCANCE_ANTORCHA = 10;
+	private static int ALCANCE_ANTORCHA = 3;
 
 	private static String INICIO = "\033[";
 	private static String RESET = "\033[0m";
