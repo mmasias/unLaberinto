@@ -25,9 +25,29 @@ class UnLaberinto {
 				{ 1, 0, 0, 0, 1, 0, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 0, 1, 1 },
 				{ 1, 0, 0, 0, 1, 0, 1, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1 },
 				{ 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 1, 1 },
+				{ 1, 0, 0, 0, 1, 1, 1, 0, 1, 0, 0, 0, 0, 1, 1, 1, 0, 1, 1, 0, 1, 0, 0, 0, 0, 1, 1, 1, 0, 1, 1 },
+				{ 1, 1, 1, 0, 0, 0, 0, 0, 1, 0, 1, 1, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 1, 1, 0, 0, 0, 0, 0, 1, 1 },
+				{ 1, 0, 1, 0, 1, 1, 1, 0, 1, 0, 0, 0, 0, 1, 0, 1, 0, 1, 1, 0, 1, 0, 0, 0, 0, 1, 0, 1, 0, 1, 1 },
+				{ 1, 0, 1, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1 },
+				{ 1, 0, 1, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1 },
+				{ 1, 0, 0, 0, 1, 0, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 0, 1, 1 },
+				{ 1, 0, 0, 1, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1 },
+				{ 1, 0, 0, 0, 1, 0, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 0, 1, 1 },
+				{ 1, 0, 0, 0, 1, 0, 1, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1 },
+				{ 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 1, 1 },
+				{ 1, 0, 0, 0, 1, 1, 1, 0, 1, 0, 0, 0, 0, 1, 1, 1, 0, 1, 1, 0, 1, 0, 0, 0, 0, 1, 1, 1, 0, 1, 1 },
+				{ 1, 1, 1, 0, 0, 0, 0, 0, 1, 0, 1, 1, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 1, 1, 0, 0, 0, 0, 0, 1, 1 },
+				{ 1, 0, 1, 0, 1, 1, 1, 0, 1, 0, 0, 0, 0, 1, 0, 1, 0, 1, 1, 0, 1, 0, 0, 0, 0, 1, 0, 1, 0, 1, 1 },
+				{ 1, 0, 1, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1 },
+				{ 1, 0, 1, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1 },
+				{ 1, 0, 0, 0, 1, 0, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 0, 1, 1 },
+				{ 1, 0, 0, 1, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1 },
+				{ 1, 0, 0, 0, 1, 0, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 0, 1, 1 },
+				{ 1, 0, 0, 0, 1, 0, 1, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1 },
+				{ 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 1, 1 },								
 				{ 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 }
 		};
-		int[][] elPersonaje = { { 2, 2 } };
+		int[][] elPersonaje = { { 7, 7 } };
 		int[] elReloj = {16,0};
 		int[][] losNPCs = {
 				{ 12, 14 },
@@ -145,28 +165,33 @@ class UnLaberinto {
 	private static void imprimeMundo(int[][] elMapa, int[][] elPersonaje, int[][] losNPCs, int[] elReloj) {
 
 		limpiaPantalla();
-		imprimeBordeHorizontal(elMapa[0].length);
+		imprimeBordeHorizontal(VIEWPORT*2+1);
 
 		for (int i = 0; i < elMapa.length; i = i + 1) {
-			imprimeBordeVertical(false);
-			for (int j = 0; j < elMapa[i].length; j = j + 1) {
-				if (puedoVer(i, j, elPersonaje)) {
-					if (i == elPersonaje[0][1] && j == elPersonaje[0][0]) {
-						imprimePersonaje();
-					} else {
-						if (hayNPC(losNPCs, i, j)) {
-							imprimeNPC();
+			if (i>elPersonaje[0][1]-VIEWPORT && i<elPersonaje[0][1]+VIEWPORT) {
+				imprimeBordeVertical(false);
+				for (int j = 0; j < elMapa[i].length; j = j + 1) {
+					if (j>elPersonaje[0][0]-VIEWPORT && j<elPersonaje[0][0]+VIEWPORT) {
+						if (puedoVer(i, j, elPersonaje)) {
+							if (i == elPersonaje[0][1] && j == elPersonaje[0][0]) {
+								imprimePersonaje();
+							} else {
+								if (hayNPC(losNPCs, i, j)) {
+									imprimeNPC();
+								} else {
+									imprimeElemento(elMapa[i][j]);
+								}
+							}
 						} else {
-							imprimeElemento(elMapa[i][j]);
-						}
+							imprimeVacio();
+						}	
 					}
-				} else {
-					imprimeVacio();
 				}
-			}
-			imprimeBordeVertical(true);
+				imprimeBordeVertical(true);
 		}
-		imprimeBordeHorizontal(elMapa[0].length);
+		}
+		
+		imprimeBordeHorizontal(VIEWPORT*2+1);
 		imprimeStatus(elPersonaje, losNPCs, elReloj);
 	}
 
@@ -235,7 +260,7 @@ class UnLaberinto {
 	}
 
 	private static int ALCANCE_ANTORCHA = 3;
-	private static int VIEWPORT = 5;
+	private static int VIEWPORT = 7;
 
 	private static String INICIO = "\033[";
 	private static String RESET = "\033[0m";
