@@ -226,21 +226,25 @@ class UnLaberinto {
 
 		imprimeBordeHorizontal(VIEWPORT);
 		
-		int unTramo = (VIEWPORT*2)/12;
+		int unTramo = (VIEWPORT * 2) / 12;
+		int i=1;
+		String elCielo = INICIO + YELLOW + CYAN_BACKGROUND + "   " + RESET;
+		String elSol = INICIO + YELLOW_BOLD + YELLOW_BACKGROUND + " O " + RESET;
+
 		System.out.print(unMiniSeparador);
-			{
-				if (elReloj[0]>=6 && elReloj[0]<=19) {
-					for (int i=0;i<(VIEWPORT*2-1)-(unTramo*elReloj[0]-5);i++){
-						System.out.print(INICIO+YELLOW_BOLD+CYAN_BACKGROUND+"   "+RESET);
-					}
-					System.out.print(INICIO+YELLOW_BOLD+CYAN_BACKGROUND+">O<"+RESET);
-				} else {
-					for(int i=1;i<VIEWPORT*2;i++) {
-						System.out.print(INICIO+YELLOW_BOLD+CYAN_BACKGROUND+"   "+RESET);
-					}
-				}
+		if (elReloj[0] >= 6 && elReloj[0] <= 19) {
+			for (i = 1; i < (VIEWPORT * 2 - 1) - (unTramo * elReloj[0] - 6); i++) {
+				System.out.print(elCielo);
 			}
-			System.out.println(unMiniSeparador);
+			System.out.print(elSol);
+			i++;
+		}
+		int puntoDePartida = i;
+		for (i = puntoDePartida; i < VIEWPORT * 2; i++) {
+			System.out.print(elCielo);
+		}
+		
+		System.out.println(unMiniSeparador);
 		imprimeBordeHorizontal(VIEWPORT);
 	}
 
