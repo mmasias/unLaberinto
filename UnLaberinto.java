@@ -4,39 +4,48 @@ class UnLaberinto {
 	public static void main(String[] args) {
 
 		int[][] unMapa = {
-				{ 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 },
-				{ 1, 2, 2, 0, 3, 3, 3, 0, 1, 0, 1, 1, 0, 0, 0, 0, 0, 1, 3, 0, 1, 0, 1, 1, 0, 0, 0, 0, 0, 1, 1 },
-				{ 1, 2, 2, 0, 3, 3, 3, 0, 1, 0, 0, 0, 0, 1, 0, 1, 0, 1, 3, 0, 1, 0, 0, 0, 0, 1, 0, 1, 0, 1, 1 },
-				{ 1, 0, 1, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1 },
-				{ 1, 0, 0, 0, 1, 0, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 0, 1, 1 },
-				{ 1, 0, 0, 1, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1 },
-				{ 1, 1, 0, 0, 1, 1, 1, 0, 1, 0, 0, 0, 0, 1, 1, 1, 0, 1, 1, 0, 1, 0, 0, 0, 0, 1, 1, 1, 0, 1, 1 },
-				{ 1, 1, 1, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 1, 0, 0, 0, 0, 1 },
-				{ 1, 0, 0, 0, 1, 0, 1, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1 },
-				{ 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 1, 1 },
-				{ 1, 0, 0, 0, 1, 1, 1, 0, 1, 0, 0, 0, 0, 1, 1, 1, 0, 1, 1, 0, 1, 0, 0, 0, 0, 1, 1, 1, 0, 1, 1 },
-				{ 1, 1, 1, 0, 0, 0, 0, 0, 1, 0, 1, 1, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 1, 1, 0, 0, 0, 0, 0, 1, 1 },
-				{ 1, 0, 1, 0, 1, 1, 1, 0, 1, 0, 0, 0, 0, 1, 0, 1, 0, 1, 1, 0, 1, 0, 0, 0, 0, 1, 0, 1, 0, 1, 1 },
-				{ 1, 0, 1, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1 },
-				{ 1, 0, 1, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1 },
-				{ 1, 0, 0, 0, 1, 0, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 0, 1, 1 },
-				{ 1, 0, 0, 1, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1 },
-				{ 1, 0, 0, 0, 1, 0, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 0, 1, 1 },
-				{ 1, 0, 0, 0, 1, 0, 1, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1 },
-				{ 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 1, 1 },
-				{ 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 }
+			{1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
+			{1,2,2,2,2,2,2,2,2,2,2,2,2,1,1,2,2,2,2,2,2,2,2,2,2,2,2,1},
+			{1,2,1,1,1,1,2,1,1,1,1,1,2,1,1,2,1,1,1,1,1,2,1,1,1,1,2,1},
+			{1,2,1,1,1,1,2,1,1,1,1,1,2,1,1,2,1,1,1,1,1,2,1,1,1,1,2,1},
+			{1,2,1,1,1,1,2,1,1,1,1,1,2,1,1,2,1,1,1,1,1,2,1,1,1,1,2,1},
+			{1,4,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,4,1},
+			{1,2,1,1,1,1,2,1,2,1,1,1,1,1,1,1,1,1,1,2,1,2,1,1,1,1,2,1},
+			{1,2,1,1,1,1,2,1,2,1,1,1,1,1,1,1,1,1,1,2,1,2,1,1,1,1,2,1},
+			{1,2,2,2,2,2,2,1,2,2,2,2,2,1,1,2,2,2,2,2,1,2,2,2,2,2,2,1},
+			{1,1,1,1,1,1,2,1,1,1,1,1,0,1,1,0,1,1,1,1,1,2,1,1,1,1,1,1},
+			{1,1,1,1,1,1,2,1,1,1,1,1,0,1,1,0,1,1,1,1,1,2,1,1,1,1,1,1},
+			{1,1,1,1,1,1,2,1,0,0,0,0,0,0,0,0,0,0,0,0,1,2,1,1,1,1,1,1},
+			{1,1,1,1,1,1,2,1,0,1,1,1,1,0,0,1,1,1,1,0,1,2,1,1,1,1,1,1},
+			{0,0,0,0,0,0,2,0,0,1,0,0,0,0,0,0,0,0,1,0,0,2,0,0,0,0,0,0},
+			{1,1,1,1,1,1,2,1,0,1,1,1,1,1,1,1,1,1,1,0,1,2,1,1,1,1,1,1},
+			{1,1,1,1,1,1,2,1,0,0,0,0,0,6,0,0,0,0,0,0,1,2,1,1,1,1,1,1},
+			{1,1,1,1,1,1,2,1,0,1,1,1,1,1,1,1,1,1,1,0,1,2,1,1,1,1,1,1},
+			{1,1,1,1,1,1,2,1,0,1,1,1,1,1,1,1,1,1,1,0,1,2,1,1,1,1,1,1},
+			{1,2,2,2,2,2,2,2,2,2,2,2,2,1,1,2,2,2,2,2,2,2,2,2,2,2,2,1},
+			{1,2,1,1,1,1,2,1,1,1,1,1,2,1,1,2,1,1,1,1,1,2,1,1,1,1,2,1},
+			{1,2,1,1,1,1,2,2,2,1,1,1,2,1,1,2,1,1,1,2,2,2,1,1,1,1,2,1},
+			{1,4,2,2,1,1,2,1,2,2,2,2,2,2,2,2,2,2,2,2,1,2,1,1,2,2,4,1},
+			{1,1,1,2,1,1,2,1,2,1,1,1,1,1,1,1,1,1,1,2,1,2,1,1,2,1,1,1},
+			{1,1,1,2,1,1,2,1,2,1,1,1,1,1,1,1,1,1,1,2,1,2,1,1,2,1,1,1},
+			{1,2,2,2,2,2,2,1,2,2,2,2,2,1,1,2,2,2,2,2,1,2,2,2,2,2,2,1},
+			{1,2,1,1,1,1,1,1,1,1,1,1,2,1,1,2,1,1,1,1,1,1,1,1,1,1,2,1},
+			{1,2,1,1,1,1,1,1,1,1,1,1,2,1,1,2,1,1,1,1,1,1,1,1,1,1,2,1},
+			{1,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,1},
+			{1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
 		};
-		int[][] elPersonaje = { { 2, 0 } };
+		int[][] elPersonaje = { { 12, 21 }, { 0, 0 } };
 		int[][] losNPCs = {
-				{ 12, 14 },
-				{ 12, 12 },
-				{ 14, 14 },
-				{ 14, 12 },
+				{ 10, 13 },
+				{ 12, 13 },
+				{ 14, 13 },
+				{ 16, 13 },
 		};
 
 		do {
 			imprimeMundo(unMapa, elPersonaje, losNPCs);
 		} while (procesaMovimiento(unMapa, elPersonaje, losNPCs));
+		imprimeMundo(unMapa, elPersonaje, losNPCs);
 	}
 
 	private static boolean procesaMovimiento(int[][] elMapa, int[][] elPersonaje, int[][] losNPCs) {
@@ -48,9 +57,14 @@ class UnLaberinto {
 
 		inputUsuario = entrada.nextLine();
 		int elPersonajeX, elPersonajeY;
+		int elPersonajePasos, elPersonajePuntos;
 
 		elPersonajeX = elPersonaje[0][0];
 		elPersonajeY = elPersonaje[0][1];
+
+		elPersonajePasos = elPersonaje[1][0];
+		elPersonajePuntos = elPersonaje[1][1];
+
 		if (inputUsuario.equals("a") && elMapa[elPersonajeY][elPersonajeX - 1] % 2 == 0) {
 			elPersonajeX = elPersonajeX - 1;
 		} else if (inputUsuario.equals("d") && elMapa[elPersonajeY][elPersonajeX + 1] % 2 == 0) {
@@ -62,10 +76,31 @@ class UnLaberinto {
 		} else if (inputUsuario.equals("f")) {
 			return false;
 		}
+
+		elPersonajePasos++;
+
+		if (elMapa[elPersonajeY][elPersonajeX]==2){elPersonajePuntos++;};
+
+		if (hayNPC(losNPCs, elPersonajeX, elPersonajeY)) {return false;}
+		
+		elMapa[elPersonajeY][elPersonajeX]=0;
+
 		elPersonaje[0][0] = elPersonajeX;
 		elPersonaje[0][1] = elPersonajeY;
+		elPersonaje[1][0] = elPersonajePasos;
+		elPersonaje[1][1] = elPersonajePuntos;
 
-		return true;
+		return tableroConPastillas(elMapa);
+	}
+
+	private static boolean tableroConPastillas(int[][] elMapa) {
+
+		for (int i=0;i<elMapa.length;i++){
+			for (int j=0;j<elMapa[i].length;j++) {
+				if (elMapa[i][j]==2) {return true;}
+			}
+		}
+		return false;
 	}
 
 	private static void mueveNPCs(int[][] elMapa, int[][] losNPCs) {
@@ -119,7 +154,8 @@ class UnLaberinto {
 	}
 
 	private static void imprimeStatus(int[][] elPersonaje, int[][] losNPCs) {
-		System.out.println("Personaje en X:[" + elPersonaje[0][0] + "] Y:[" + elPersonaje[0][1] + "]");
+
+		System.out.println("Personaje en X:[" + elPersonaje[0][0] + "] Y:[" + elPersonaje[0][1] + "] / Pasos:["+elPersonaje[1][0]+"] / Puntos: ["+elPersonaje[1][1]+"]");
 		for (int unNPC = 0; unNPC < losNPCs.length; unNPC++) {
 			System.out.print("NPC[" + unNPC + "]=(" + losNPCs[unNPC][0] + "," + losNPCs[unNPC][1] + ") - ");
 		}
@@ -145,7 +181,11 @@ class UnLaberinto {
 		String[] matrizDeElementos = {
 				INICIO + YELLOW + GREEN_BACKGROUND + " . " + RESET,
 				INICIO + WHITE + WHITE_BACKGROUND + "[#]" + RESET,
-				INICIO + RED + GREEN_BACKGROUND + "*" + RESET + INICIO + GREEN_BOLD + GREEN_BACKGROUND + "Y" + RESET + INICIO + RED + GREEN_BACKGROUND + "*" + RESET,
+				INICIO + YELLOW_BOLD + GREEN_BACKGROUND + " * " + RESET,
+				INICIO + BLUE_BOLD + BLUE_BACKGROUND + "~ ~" + RESET,
+				INICIO + RED_BOLD + BLUE_BACKGROUND + " * " + RESET,
+				INICIO + BLUE_BOLD + BLUE_BACKGROUND + "~ ~" + RESET,
+				INICIO + GREEN_BOLD + BLUE_BACKGROUND + "() " + RESET,
 				INICIO + BLUE_BOLD + BLUE_BACKGROUND + "~ ~" + RESET
 		};
 
@@ -172,10 +212,9 @@ class UnLaberinto {
 
 	private static void imprimeNPC() {
 
-		System.out.print(INICIO + YELLOW_BOLD + GREEN_BACKGROUND + "^V^" + RESET);
+		System.out.print(INICIO + YELLOW_BOLD + RED_BACKGROUND + "^V^" + RESET);
 
-	}
-
+	} 
 
 	private static void imprimeBordeHorizontal(int laLongitud) {
 
@@ -196,7 +235,7 @@ class UnLaberinto {
 
 	}
 
-	private static int ALCANCE_ANTORCHA = 10;
+	private static int ALCANCE_ANTORCHA = 100;
 
 	private static String INICIO = "\033[";
 	private static String RESET = "\033[0m";
