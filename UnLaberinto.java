@@ -48,7 +48,7 @@ class UnLaberinto {
 				{ 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 }
 		};
 		int[][] elPersonaje = { { 7, 7 } };
-		int[] elReloj = {16,0};
+		int[] elReloj = {4,0};
 		int[][] losNPCs = {
 				{ 12, 14 },
 				{ 12, 12 },
@@ -165,8 +165,8 @@ class UnLaberinto {
 	private static void imprimeMundo(int[][] elMapa, int[][] elPersonaje, int[][] losNPCs, int[] elReloj) {
 
 		limpiaPantalla();
-		imprimeBordeHorizontal(VIEWPORT*2+1);
-
+		imprimeCielo(elReloj);
+		
 		for (int i = 0; i < elMapa.length; i = i + 1) {
 			if (i>elPersonaje[0][1]-VIEWPORT && i<elPersonaje[0][1]+VIEWPORT) {
 				imprimeBordeVertical(false);
@@ -191,7 +191,7 @@ class UnLaberinto {
 		}
 		}
 		
-		imprimeBordeHorizontal(VIEWPORT*2+1);
+		imprimeBordeHorizontal(VIEWPORT);
 		imprimeStatus(elPersonaje, losNPCs, elReloj);
 	}
 
@@ -222,6 +222,28 @@ class UnLaberinto {
 
 	}
 
+	private static void imprimeCielo(int[] elReloj){
+
+		imprimeBordeHorizontal(VIEWPORT);
+		
+		int unTramo = (VIEWPORT*2)/12;
+		System.out.print(unMiniSeparador);
+			{
+				if (elReloj[0]>=6 && elReloj[0]<=19) {
+					for (int i=0;i<(VIEWPORT*2-1)-(unTramo*elReloj[0]-5);i++){
+						System.out.print(INICIO+YELLOW_BOLD+CYAN_BACKGROUND+"   "+RESET);
+					}
+					System.out.print(INICIO+YELLOW_BOLD+CYAN_BACKGROUND+">O<"+RESET);
+				} else {
+					for(int i=1;i<VIEWPORT*2;i++) {
+						System.out.print(INICIO+YELLOW_BOLD+CYAN_BACKGROUND+"   "+RESET);
+					}
+				}
+			}
+			System.out.println(unMiniSeparador);
+		imprimeBordeHorizontal(VIEWPORT);
+	}
+
 	private static boolean puedoVer(int i, int j, int[][] elPersonaje) {
 
 		return Math.pow(elPersonaje[0][0]-j,2)+Math.pow(elPersonaje[0][1]-i,2)<=Math.pow(ALCANCE_ANTORCHA,2);
@@ -242,17 +264,17 @@ class UnLaberinto {
 
 	private static void imprimeBordeHorizontal(int laLongitud) {
 
-		System.out.print("+");
-		for (int j = 0; j < laLongitud; j = j + 1) {
-			System.out.print("---");
+		System.out.print(unMiniSeparador);
+		for (int j = 0; j < laLongitud*2-1; j = j + 1) {
+			System.out.print(unSeparador);
 		}
-		System.out.println("+");
+		System.out.println(unMiniSeparador);
 
 	}
 
 	private static void imprimeBordeVertical(boolean esBordeDerecho) {
 
-		System.out.print("|");
+		System.out.print(unMiniSeparador);
 		if (esBordeDerecho) {
 			System.out.println();
 		}
@@ -291,4 +313,8 @@ class UnLaberinto {
 	private static String PURPLE_BACKGROUND = ";45m";
 	private static String CYAN_BACKGROUND = ";46m";
 	private static String WHITE_BACKGROUND = ";47m";
+
+	private static String unSeparador = INICIO + BLUE + BLUE_BACKGROUND + "   " + RESET;
+	private static String unMiniSeparador = INICIO + BLUE + BLUE_BACKGROUND + " " + RESET;
+
 }
