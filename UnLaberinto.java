@@ -235,6 +235,7 @@ class UnLaberinto {
 	}
 
 	private static int ALCANCE_ANTORCHA = 3;
+	private static int VIEWPORT = 5;
 
 	private static String INICIO = "\033[";
 	private static String RESET = "\033[0m";
