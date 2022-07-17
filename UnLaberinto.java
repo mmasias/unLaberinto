@@ -197,11 +197,12 @@ class UnLaberinto {
 
 	private static void imprimeStatus(int[][] elPersonaje, int[][] losNPCs, int[] elReloj) {
 
-		System.out.println("Son las ["+elReloj[0]+"]:["+elReloj[1]+"] / El personaje está en X:[" + elPersonaje[0][0] + "] Y:[" + elPersonaje[0][1] + "]");
+		System.out.println("Hora: ["+elReloj[0]+"]:["+elReloj[1]+"] / Posicion X:[" + elPersonaje[0][0] + "] Y:[" + elPersonaje[0][1] + "]");
 		for (int unNPC = 0; unNPC < losNPCs.length; unNPC++) {
-			System.out.print("NPC[" + unNPC + "]=(" + losNPCs[unNPC][0] + "," + losNPCs[unNPC][1] + ") - ");
+			System.out.print("NPC[" + unNPC + "]=(" + losNPCs[unNPC][0] + "," + losNPCs[unNPC][1] + ") | ");
 		}
-		System.out.println("\n" + ALCANCE_ANTORCHA);
+		System.out.println("\nAlcance antorcha: " + ALCANCE_ANTORCHA);
+		System.out.println("Utilice [w]/[a]/[s]/[d] para desplazarse, [f] para finalizar");
 	}
 
 	private static void imprimeElemento(int elementoDelMapa) {
