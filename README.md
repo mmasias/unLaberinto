@@ -1,3 +1,3 @@
-# unLaberinto ibu
+# unLaberinto
 
 ![unLaberinto](images/unLaberinto.png)
